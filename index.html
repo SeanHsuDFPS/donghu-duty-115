@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>115學年度 導護老師輪值表｜臺北市內湖區東湖國民小學</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#17212B; --ink2:#3D4C57; --slate:#6B7C84; --faint:#93A1A6;
+  --paper:#EDEFEA; --card:#FBFCF9; --rule:#D6DCD5;
+  --deep:#2E4A52; --deep-soft:#DCE6E5;
+  --brass:#A9761F; --brass-soft:#F0E3C6;
+  --seal:#9C3B2E; --seal-soft:#FBF1EE;
+  --serif:"Noto Serif TC","標楷體",serif;
+  --sans:"Noto Sans TC","微軟正黑體",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --r:3px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:15px;line-height:1.65;-webkit-text-size-adjust:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+header{padding:44px 0 26px;border-bottom:1px solid var(--rule)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:var(--slate);margin:0 0 10px}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(28px,5vw,44px);
+  letter-spacing:.04em;margin:0;line-height:1.2}
+h1 .yr{color:var(--brass)}
+.sub{color:var(--ink2);margin:12px 0 0;max-width:58ch;font-size:14.5px}
+
+/* search */
+.searchbar{position:sticky;top:0;z-index:40;background:var(--paper);
+  border-bottom:1px solid var(--rule);padding:13px 0 10px;
+  box-shadow:0 6px 18px -18px rgba(23,33,43,.8)}
+.searchbox{position:relative;display:flex;gap:10px}
+.searchbox>svg{position:absolute;left:14px;top:24px;transform:translateY(-50%);
+  width:18px;height:18px;color:var(--slate);pointer-events:none}
+#q{flex:1;font-family:var(--sans);font-size:16px;padding:13px 14px 13px 42px;
+  border:1.5px solid var(--rule);border-radius:var(--r);background:var(--card);
+  color:var(--ink);outline:none;transition:border-color .15s,box-shadow .15s;min-width:0}
+#q:focus{border-color:var(--deep);box-shadow:0 0 0 3px var(--deep-soft)}
+#q::placeholder{color:var(--faint)}
+.btn{font-family:var(--sans);font-size:15px;font-weight:500;padding:0 22px;
+  border:1.5px solid var(--deep);background:var(--deep);color:#fff;border-radius:var(--r);
+  cursor:pointer;white-space:nowrap;transition:background .15s}
+.btn:hover{background:#24393F}
+.btn:focus-visible,#q:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.hint{font-size:12px;color:var(--slate);margin:7px 0 0;display:flex;flex-wrap:wrap;gap:4px 14px}
+.hint b{font-weight:500;color:var(--ink2)}
+.hint code{font-family:var(--mono);font-size:11.5px;background:var(--card);
+  border:1px solid var(--rule);border-radius:2px;padding:1px 5px}
+#sug{position:absolute;top:52px;left:0;right:0;background:var(--card);
+  border:1px solid var(--rule);border-radius:var(--r);max-height:340px;overflow:auto;
+  display:none;box-shadow:0 12px 30px -12px rgba(23,33,43,.35);z-index:5}
+#sug.on{display:block}
+#sug button{display:flex;align-items:center;gap:10px;width:100%;text-align:left;
+  background:none;border:0;border-bottom:1px solid var(--rule);padding:9px 14px;
+  font-family:var(--sans);font-size:15px;color:var(--ink);cursor:pointer}
+#sug button:last-child{border-bottom:0}
+#sug button:hover,#sug button.sel{background:var(--deep-soft)}
+#sug .kind{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;padding:2px 6px;
+  border-radius:2px;background:var(--deep-soft);color:var(--deep);flex:none}
+#sug .k-date .kind,#sug .k-week .kind{background:var(--brass-soft);color:var(--brass)}
+#sug .meta{margin-left:auto;font-size:12.5px;color:var(--slate);font-family:var(--mono)}
+
+/* roster */
+.sem{padding:38px 0 8px}
+.semhead{display:flex;align-items:baseline;gap:16px;margin:0 0 20px;
+  padding-bottom:10px;border-bottom:2px solid var(--ink)}
+.semhead h2{font-family:var(--serif);font-weight:700;font-size:24px;margin:0;letter-spacing:.08em}
+.semhead .meta{font-family:var(--mono);font-size:12.5px;color:var(--slate)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(268px,1fr))}
+.wk{background:var(--card);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
+.wk-h{display:flex;align-items:baseline;justify-content:space-between;gap:8px;
+  padding:0;background:#F2F4EF;border-bottom:1px solid var(--rule)}
+.wk-h button{flex:1;display:flex;align-items:baseline;justify-content:space-between;gap:8px;
+  background:none;border:0;padding:9px 12px;cursor:pointer;font-family:inherit;color:inherit}
+.wk-h button:hover{background:var(--deep-soft)}
+.wk-n{font-family:var(--serif);font-weight:700;font-size:15px;letter-spacing:.06em}
+.wk-d{font-family:var(--mono);font-size:12.5px;color:var(--ink2)}
+.wk-note{padding:5px 12px;font-size:12px;color:var(--seal);background:var(--seal-soft);
+  border-bottom:1px solid var(--rule);font-family:var(--mono)}
+.rows{list-style:none;margin:0;padding:4px 0}
+.rows li{display:flex;align-items:center;gap:10px;padding:1px 12px}
+.pn{font-family:var(--mono);font-size:11.5px;font-weight:600;width:22px;height:22px;flex:none;
+  display:grid;place-items:center;border-radius:2px;background:var(--deep-soft);color:var(--deep)}
+.rows li.g7 .pn{background:var(--brass-soft);color:var(--brass)}
+.nm{font-family:var(--sans);font-size:14.5px;background:none;border:0;padding:3px 4px;
+  color:var(--ink);cursor:pointer;border-radius:2px;text-align:left;flex:1}
+.nm:hover{background:var(--deep-soft)}
+.nm:focus-visible,.wk-h button:focus-visible{outline:2px solid var(--brass);outline-offset:1px}
+.rows li.g7 .nm{font-weight:700}
+
+footer{margin-top:46px;border-top:1px solid var(--rule);padding:28px 0 60px}
+.fgrid{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.fbox h3{font-family:var(--serif);font-size:15px;font-weight:700;margin:0 0 8px;letter-spacing:.06em}
+.fbox p{font-size:13.5px;color:var(--ink2);margin:0}
+.fbox ol{padding-left:20px;font-family:var(--mono);font-size:12.5px;columns:2;column-gap:18px;margin:0}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:12.5px;padding:3px 9px;border:1px solid var(--rule);border-radius:20px;
+  background:var(--card);color:var(--ink2)}
+.credit{margin-top:26px;font-family:var(--mono);font-size:11.5px;color:var(--faint)}
+.byline{margin:14px 0 0;padding-top:14px;border-top:1px solid var(--rule);
+  font-family:var(--serif);font-weight:500;font-size:13.5px;color:var(--ink2);letter-spacing:.08em}
+
+/* modal */
+.ov{position:fixed;inset:0;background:rgba(23,33,43,.55);backdrop-filter:blur(3px);
+  display:none;z-index:60;padding:20px;overflow:auto}
+.ov.on{display:block}
+.modal{max-width:760px;margin:36px auto;background:var(--paper);border-radius:var(--r);
+  box-shadow:0 30px 70px -20px rgba(23,33,43,.6);overflow:hidden;
+  animation:rise .22s cubic-bezier(.2,.7,.3,1)}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.modal{animation:none}}
+.m-h{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;
+  padding:22px 26px;background:var(--ink);color:#fff}
+.m-h h2{font-family:var(--serif);font-size:26px;font-weight:700;margin:0;letter-spacing:.06em}
+.m-h .role{font-family:var(--mono);font-size:12.5px;color:#B9C6CA;margin-top:5px}
+.x{background:none;border:1px solid #4A5A64;color:#C8D3D6;width:32px;height:32px;flex:none;
+  border-radius:var(--r);cursor:pointer;font-size:17px;line-height:1}
+.x:hover{background:#2A3742;color:#fff}
+.m-b{padding:22px 26px 28px}
+.tally{font-family:var(--mono);font-size:12.5px;color:var(--slate);letter-spacing:.06em;margin:0 0 16px}
+
+.duty{background:var(--card);border:1px solid var(--rule);border-radius:var(--r);
+  padding:18px 20px;margin-bottom:14px}
+.duty.gate{border-color:var(--brass);background:#FDFAF2}
+.d-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:12px}
+.d-when{font-family:var(--serif);font-weight:700;font-size:18px;letter-spacing:.05em}
+.d-date{font-family:var(--mono);font-size:13px;color:var(--ink2)}
+.d-note{font-family:var(--mono);font-size:12px;color:var(--seal)}
+.d-post{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:12px 0;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.badge{font-family:var(--serif);font-weight:900;font-size:22px;letter-spacing:.06em;
+  padding:5px 14px;border-radius:2px;background:var(--deep);color:#fff;white-space:nowrap}
+.duty.gate .badge{background:var(--brass)}
+.d-area{font-size:15px;font-weight:500}
+.d-box{font-size:12.5px;color:var(--slate);margin-top:5px;line-height:1.55}
+svg.elev{display:block;margin:14px 0 4px;width:100%;max-width:400px;height:auto}
+.mates{margin-top:12px}
+.mates .lbl,.pl-lbl{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;
+  color:var(--slate);margin-bottom:7px}
+.mates ul{list-style:none;margin:0;padding:0;display:grid;gap:4px;
+  grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.mates li{display:flex;align-items:center;gap:8px;font-size:14px}
+.mates .pn{width:20px;height:20px;font-size:11px}
+.mates button{background:none;border:0;padding:2px 4px;font-family:var(--sans);font-size:14px;
+  color:var(--ink);cursor:pointer;border-radius:2px}
+.mates button:hover{background:var(--deep-soft)}
+
+/* week view */
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 16px}
+.chip{font-family:var(--mono);font-size:12px;padding:3px 9px;border:1px solid var(--rule);
+  border-radius:2px;background:var(--card);color:var(--ink2)}
+.chip.off{border-color:#E7CFC9;background:var(--seal-soft);color:var(--seal)}
+.chip.on{border-color:var(--deep);background:var(--deep);color:#fff}
+.postlist{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.postlist li{display:flex;gap:12px;align-items:flex-start;background:var(--card);
+  border:1px solid var(--rule);border-radius:var(--r);padding:10px 14px}
+.postlist li.g7{border-color:var(--brass);background:#FDFAF2}
+.badge-sm{font-family:var(--serif);font-weight:700;font-size:14px;padding:4px 10px;border-radius:2px;
+  background:var(--deep);color:#fff;white-space:nowrap;flex:none;min-width:62px;text-align:center}
+.postlist li.g7 .badge-sm{background:var(--brass)}
+.pl-name{font-size:16px;font-weight:500;background:none;border:0;padding:0;cursor:pointer;
+  font-family:var(--sans);color:var(--ink);border-radius:2px}
+.pl-name:hover{background:var(--deep-soft)}
+.pl-area{font-size:12.5px;color:var(--slate);line-height:1.5}
+
+.notice{background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--brass);
+  border-radius:var(--r);padding:16px 18px;margin-bottom:18px}
+.notice h4{font-family:var(--serif);font-size:17px;margin:0 0 6px;font-weight:700;letter-spacing:.04em}
+.notice p{margin:0;font-size:14px;color:var(--ink2)}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}
+.jump button{font-family:var(--sans);font-size:13.5px;padding:7px 14px;border:1px solid var(--deep);
+  background:var(--card);color:var(--deep);border-radius:var(--r);cursor:pointer}
+.jump button:hover{background:var(--deep);color:#fff}
+.empty{background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--brass);
+  border-radius:var(--r);padding:18px 20px}
+.empty p{margin:0 0 6px;font-size:14.5px}
+.empty p:last-child{margin:0;color:var(--slate);font-size:13.5px}
+
+@media(max-width:560px){
+  .m-h,.m-b{padding-left:18px;padding-right:18px}
+  .modal{margin:12px auto}
+  .fbox ol{columns:1}
+  .btn{padding:0 15px}
+}
+@media print{.searchbar,.credit{display:none}body{background:#fff}
+  .grid{grid-template-columns:repeat(3,1fr)}.wk{break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<div class="searchbar"><div class="wrap">
+  <div class="searchbox">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+    <input id="q" type="text" autocomplete="off" aria-label="查詢導護輪值"
+           placeholder="輸入姓名、日期或週次">
+    <button class="btn" id="go">查詢</button>
+    <div id="sug" role="listbox"></div>
+  </div>
+  <p class="hint"><span><b>姓名</b> <code>王大維</code></span><span><b>日期</b> <code>20260926</code> <code>9/26</code></span><span><b>週次</b> <code>上學期第五週</code> <code>下6</code></span></p>
+</div></div>
+
+<header><div class="wrap">
+  <p class="eyebrow" id="eyebrow"></p>
+  <h1><span class="yr" id="yr"></span> 導護老師輪值表</h1>
+  <p class="sub">上、下學期全學年輪值一次呈現。可用姓名查個人的輪值週次與同組夥伴，也可用日期或週次查當週的七位導護老師。</p>
+</div></header>
+
+<main class="wrap" id="main"></main>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div class="fbox"><h3>導護交接</h3><p id="handover"></p></div>
+    <div class="fbox"><h3>本學年免輪值教師</h3><div class="tags" id="exempt"></div></div>
+    <div class="fbox"><h3>遞補人員（依下學年度前三週順位）</h3><ol id="next21"></ol></div>
+  </div>
+  <p class="credit" id="credit"></p>
+  <p class="byline" id="byline"></p>
+</div></footer>
+
+<div class="ov" id="ov" role="dialog" aria-modal="true" aria-labelledby="mtitle">
+  <div class="modal">
+    <div class="m-h">
+      <div><h2 id="mtitle"></h2><div class="role" id="msub"></div></div>
+      <button class="x" id="mx" aria-label="關閉">✕</button>
+    </div>
+    <div class="m-b" id="mbody"></div>
+  </div>
+</div>
+
+<script>
+const D = {"school": "臺北市內湖區東湖國民小學", "year": "115 學年度", "semesters": [{"label": "上學期", "key": "上", "weeks": [{"cn": "一", "no": 1, "period": "08/31~09/04", "note": "8/31 開學日", "names": ["吳美文", "林美秀", "陳靜慧", "李佳娟", "陳凱翔", "呂亞琪", "廖淑美"], "ds": "2026-08-31", "de": "2026-09-04", "bs": "2026-08-31", "be": "2026-09-06"}, {"cn": "二", "no": 2, "period": "09/07~09/11", "note": "", "names": ["沈靜敏", "劉惠芬", "朱娜君", "林郁君", "蕭雅內", "許意苹", "王琇娟"], "ds": "2026-09-07", "de": "2026-09-11", "bs": "2026-09-07", "be": "2026-09-13"}, {"cn": "三", "no": 3, "period": "09/14~09/18", "note": "", "names": ["黃麗美", "蔡玫真", "陳怡婷", "張雅茹", "陳志明", "羅明昌", "廖佩茹"], "ds": "2026-09-14", "de": "2026-09-18", "bs": "2026-09-14", "be": "2026-09-20"}, {"cn": "四", "no": 4, "period": "09/21~09/24", "note": "9/25 放假", "names": ["李國彥", "薛玉蓮", "林可欣", "許祺文", "江益華", "謝惠菱", "陳齊為"], "ds": "2026-09-21", "de": "2026-09-24", "bs": "2026-09-21", "be": "2026-09-27"}, {"cn": "五", "no": 5, "period": "09/29~10/02", "note": "9/28 放假", "names": ["陳媺絨", "王秋嵐", "陳慧敏", "劉虹音", "姚竣豪", "施懿珊", "林怡秀"], "ds": "2026-09-29", "de": "2026-10-02", "bs": "2026-09-28", "be": "2026-10-04"}, {"cn": "六", "no": 6, "period": "10/05~10/08", "note": "10/9 放假", "names": ["魏嘉妏", "李豊義", "蔡仲哲", "郭蕙菊", "洪伃佳", "黃宏揚", "林倚莉"], "ds": "2026-10-05", "de": "2026-10-08", "bs": "2026-10-05", "be": "2026-10-11"}, {"cn": "七", "no": 7, "period": "10/12~10/16", "note": "", "names": ["劉姈芳", "陳靜儀", "石麗霞", "郭佳豪", "蕭濤穎", "宋庭萱", "林建龍"], "ds": "2026-10-12", "de": "2026-10-16", "bs": "2026-10-12", "be": "2026-10-18"}, {"cn": "八", "no": 8, "period": "10/19~10/23", "note": "", "names": ["簡麗秋", "謝宜芳", "陳郁雯", "鄭竣予", "林俊宏", "邱哲伊", "高婕凌"], "ds": "2026-10-19", "de": "2026-10-23", "bs": "2026-10-19", "be": "2026-10-25"}, {"cn": "九", "no": 9, "period": "10/27~10/30", "note": "10/26 放假", "names": ["鄧詩嘉", "劉淑珍", "楊家麟", "黃馨儀", "林宥均", "胡仲薇", "廖瑞珍"], "ds": "2026-10-27", "de": "2026-10-30", "bs": "2026-10-26", "be": "2026-11-01"}, {"cn": "十", "no": 10, "period": "11/02~11/06", "note": "", "names": ["蔡青蓉", "鄧善惠", "余忠善", "陳俞潓", "黃瀅慈", "陳佳琳", "蔡鵑如"], "ds": "2026-11-02", "de": "2026-11-06", "bs": "2026-11-02", "be": "2026-11-08"}, {"cn": "十一", "no": 11, "period": "11/09~11/13", "note": "六年級畢業旅行", "names": ["周宜潔", "范嘉純", "喻思婷", "陳筠", "林楚芸", "蔡瑩叡", "莊永浰"], "ds": "2026-11-09", "de": "2026-11-13", "bs": "2026-11-09", "be": "2026-11-15"}, {"cn": "十二", "no": 12, "period": "11/16~11/20", "note": "", "names": ["吳美瑤", "羅清蘭", "林蓉敏", "曾子焄", "關春琪", "吳肯致", "林英傑"], "ds": "2026-11-16", "de": "2026-11-20", "bs": "2026-11-16", "be": "2026-11-22"}, {"cn": "十三", "no": 13, "period": "11/23~11/27", "note": "", "names": ["許仲恩", "張珺涵", "劉澍賢", "陳俐安", "呂志潔", "賴元", "鍾竣任"], "ds": "2026-11-23", "de": "2026-11-27", "bs": "2026-11-23", "be": "2026-11-29"}, {"cn": "十四", "no": 14, "period": "11/30~12/04", "note": "", "names": ["何思萱", "王維萱", "沈世鴻", "張佑安", "徐玉珍", "黃彥舒", "陳冠蓉"], "ds": "2026-11-30", "de": "2026-12-04", "bs": "2026-11-30", "be": "2026-12-06"}, {"cn": "十五", "no": 15, "period": "12/07~12/11", "note": "", "names": ["羅筠甯", "江彥凝", "蕭秀慧", "楊嬿卿", "吳珮綺", "金雅萍", "王妤"], "ds": "2026-12-07", "de": "2026-12-11", "bs": "2026-12-07", "be": "2026-12-13"}, {"cn": "十六", "no": 16, "period": "12/14~12/18", "note": "", "names": ["吳品嫻", "高若華", "謝涵書", "林煦凱", "張倩芸", "黃瑩瑩", "吳彥成"], "ds": "2026-12-14", "de": "2026-12-18", "bs": "2026-12-14", "be": "2026-12-20"}, {"cn": "十七", "no": 17, "period": "12/21~12/24", "note": "12/25 放假", "names": ["吳美文", "林美秀", "陳靜慧", "江珞瑀", "洪秀如", "王大維", "陳惠美"], "ds": "2026-12-21", "de": "2026-12-24", "bs": "2026-12-21", "be": "2026-12-27"}, {"cn": "十八", "no": 18, "period": "12/28~12/31", "note": "1/1 放假", "names": ["李佳娟", "廖淑美", "黃麗美", "蔡玫真", "呂亞琪", "武輔金", "陳凱翔"], "ds": "2026-12-28", "de": "2026-12-31", "bs": "2026-12-28", "be": "2027-01-03"}, {"cn": "十九", "no": 19, "period": "01/04~01/08", "note": "", "names": ["沈靜敏", "劉惠芬", "朱娜君", "林郁君", "蕭雅內", "張庭竺", "李國彥"], "ds": "2027-01-04", "de": "2027-01-08", "bs": "2027-01-04", "be": "2027-01-10"}, {"cn": "二十", "no": 20, "period": "01/11~01/15", "note": "", "names": ["許意苹", "陳怡婷", "廖佩茹", "陳志明", "羅明昌", "鄒甯方", "張雅茹"], "ds": "2027-01-11", "de": "2027-01-15", "bs": "2027-01-11", "be": "2027-01-17"}, {"cn": "二十一", "no": 21, "period": "01/18~01/20", "note": "1/20 結業式", "names": ["薛玉蓮", "林可欣", "許祺文", "陳齊為", "謝惠菱", "周詩紘", "江益華"], "ds": "2027-01-18", "de": "2027-01-20", "bs": "2027-01-18", "be": "2027-01-24"}]}, {"label": "下學期", "key": "下", "weeks": [{"cn": "一", "no": 1, "period": "02/11~02/12", "note": "2/11 開學日", "names": ["陳媺絨", "王秋嵐", "劉虹音", "林怡秀", "施懿珊", "高沛瑜", "姚竣豪"], "ds": "2027-02-11", "de": "2027-02-12", "bs": "2027-02-08", "be": "2027-02-14"}, {"cn": "二", "no": 2, "period": "02/15~02/19", "note": "", "names": ["李豊義", "蔡仲哲", "郭蕙菊", "林倚莉", "黃宏揚", "楊孟珠", "洪伃佳"], "ds": "2027-02-15", "de": "2027-02-19", "bs": "2027-02-15", "be": "2027-02-21"}, {"cn": "三", "no": 3, "period": "02/22~02/26", "note": "", "names": ["鄧詩嘉", "劉淑珍", "陳靜儀", "石麗霞", "蕭濤穎", "張榮明", "郭佳豪"], "ds": "2027-02-22", "de": "2027-02-26", "bs": "2027-02-22", "be": "2027-02-28"}, {"cn": "四", "no": 4, "period": "03/02~03/05", "note": "3/1 放假", "names": ["蔡青蓉", "鄧善惠", "王琇娟", "宋庭萱", "林建龍", "簡麗秋", "陳郁雯"], "ds": "2027-03-02", "de": "2027-03-05", "bs": "2027-03-01", "be": "2027-03-07"}, {"cn": "五", "no": 5, "period": "03/08~03/12", "note": "", "names": ["陳慧敏", "周宜潔", "謝宜芳", "楊家麟", "鄭竣予", "范嘉純", "林俊宏"], "ds": "2027-03-08", "de": "2027-03-12", "bs": "2027-03-08", "be": "2027-03-14"}, {"cn": "六", "no": 6, "period": "03/15~03/19", "note": "", "names": ["魏嘉妏", "邱哲伊", "黃馨儀", "吳美瑤", "高婕凌", "廖瑞珍", "胡仲薇"], "ds": "2027-03-15", "de": "2027-03-19", "bs": "2027-03-15", "be": "2027-03-21"}, {"cn": "七", "no": 7, "period": "03/22~03/26", "note": "", "names": ["劉姈芳", "余忠善", "陳俞潓", "黃瀅慈", "陳佳琳", "羅清蘭", "蔡鵑如"], "ds": "2027-03-22", "de": "2027-03-26", "bs": "2027-03-22", "be": "2027-03-28"}, {"cn": "八", "no": 8, "period": "03/29~04/02", "note": "", "names": ["林宥均", "喻思婷", "林楚芸", "莊永浰", "林蓉敏", "曾子焄", "蔡瑩叡"], "ds": "2027-03-29", "de": "2027-04-02", "bs": "2027-03-29", "be": "2027-04-04"}, {"cn": "九", "no": 9, "period": "04/07~04/09", "note": "4/5~4/6 放假", "names": ["陳筠", "關春琪", "吳肯致", "林英傑", "許仲恩", "張珺涵", "劉澍賢"], "ds": "2027-04-07", "de": "2027-04-09", "bs": "2027-04-05", "be": "2027-04-11"}, {"cn": "十", "no": 10, "period": "04/12~04/16", "note": "", "names": ["陳俐安", "呂志潔", "賴元", "鍾竣任", "何思萱", "王維萱", "沈世鴻"], "ds": "2027-04-12", "de": "2027-04-16", "bs": "2027-04-12", "be": "2027-04-18"}, {"cn": "十一", "no": 11, "period": "04/19~04/23", "note": "", "names": ["張佑安", "陳冠蓉", "徐玉珍", "黃彥舒", "羅筠甯", "蕭秀慧", "楊嬿卿"], "ds": "2027-04-19", "de": "2027-04-23", "bs": "2027-04-19", "be": "2027-04-25"}, {"cn": "十二", "no": 12, "period": "04/26~04/29", "note": "4/30 放假", "names": ["江彥凝", "吳珮綺", "金雅萍", "高若華", "王妤", "謝涵書", "張倩芸"], "ds": "2027-04-26", "de": "2027-04-29", "bs": "2027-04-26", "be": "2027-05-02"}, {"cn": "十三", "no": 13, "period": "05/03~05/07", "note": "", "names": ["吳品嫻", "林煦凱", "吳彥成", "黃瑩瑩", "陳惠美", "王大維", "洪秀如"], "ds": "2027-05-03", "de": "2027-05-07", "bs": "2027-05-03", "be": "2027-05-09"}, {"cn": "十四", "no": 14, "period": "05/10~05/14", "note": "", "names": ["吳美文", "林美秀", "陳靜慧", "李佳娟", "廖淑美", "黃麗美", "江珞瑀"], "ds": "2027-05-10", "de": "2027-05-14", "bs": "2027-05-10", "be": "2027-05-16"}, {"cn": "十五", "no": 15, "period": "05/17~05/21", "note": "", "names": ["蔡玫真", "陳凱翔", "呂亞琪", "沈靜敏", "劉惠芬", "朱娜君", "武輔金"], "ds": "2027-05-17", "de": "2027-05-21", "bs": "2027-05-17", "be": "2027-05-23"}, {"cn": "十六", "no": 16, "period": "05/24~05/28", "note": "5/30 放假", "names": ["林郁君", "蕭雅內", "李國彥", "許意苹", "陳怡婷", "廖佩茹", "張庭竺"], "ds": "2027-05-24", "de": "2027-05-28", "bs": "2027-05-24", "be": "2027-05-30"}, {"cn": "十七", "no": 17, "period": "05/31~06/04", "note": "", "names": ["張雅茹", "陳志明", "羅明昌", "薛玉蓮", "林可欣", "許祺文", "鄒甯方"], "ds": "2027-05-31", "de": "2027-06-04", "bs": "2027-05-31", "be": "2027-06-06"}, {"cn": "十八", "no": 18, "period": "06/07~06/11", "note": "6/9 放假", "names": ["鄧詩嘉", "劉淑珍", "陳齊為", "江益華", "謝惠菱", "陳媺絨", "周詩紘"], "ds": "2027-06-07", "de": "2027-06-11", "bs": "2027-06-07", "be": "2027-06-13"}, {"cn": "十九", "no": 19, "period": "06/14~06/18", "note": "", "names": ["蔡青蓉", "鄧善惠", "王秋嵐", "劉虹音", "林怡秀", "姚竣豪", "高沛瑜"], "ds": "2027-06-14", "de": "2027-06-18", "bs": "2027-06-14", "be": "2027-06-20"}, {"cn": "二十", "no": 20, "period": "06/21~06/25", "note": "", "names": ["施懿珊", "李豊義", "蔡仲哲", "郭蕙菊", "林倚莉", "洪伃佳", "楊孟珠"], "ds": "2027-06-21", "de": "2027-06-25", "bs": "2027-06-21", "be": "2027-06-27"}, {"cn": "二十一", "no": 21, "period": "06/28~06/30", "note": "6/30 結業式", "names": ["黃宏揚", "陳靜儀", "石麗霞", "郭佳豪", "周宜潔", "蕭濤穎", "張榮明"], "ds": "2027-06-28", "de": "2027-06-30", "bs": "2027-06-28", "be": "2027-07-04"}]}], "posts": [{"n": 1, "name": "導護一", "area": "忠孝樓、仁愛樓與信義樓　第一層", "kind": "floor", "floor": 1, "box": "忠孝樓、仁愛樓各層四個巡視箱（三個廁所前與5號梯口）；信義樓各層四個巡視箱（二個廁所前與7、8號梯口）"}, {"n": 2, "name": "導護二", "area": "忠孝樓、仁愛樓與信義樓　第二層", "kind": "floor", "floor": 2, "box": "忠孝樓、仁愛樓各層四個巡視箱（三個廁所前與5號梯口）；信義樓各層四個巡視箱（二個廁所前與7、8號梯口）"}, {"n": 3, "name": "導護三", "area": "忠孝樓、仁愛樓與信義樓　第三層", "kind": "floor", "floor": 3, "box": "忠孝樓、仁愛樓各層四個巡視箱（三個廁所前與5號梯口）；信義樓各層四個巡視箱（二個廁所前與7、8號梯口）"}, {"n": 4, "name": "導護四", "area": "忠孝樓、仁愛樓與信義樓　第四層", "kind": "floor", "floor": 4, "box": "忠孝樓、仁愛樓各層四個巡視箱（三個廁所前與5號梯口）；信義樓各層四個巡視箱（二個廁所前與7、8號梯口）"}, {"n": 5, "name": "導護五", "area": "忠孝樓、仁愛樓　第五層", "kind": "floor", "floor": 5, "box": "忠孝樓、仁愛樓各層四個巡視箱（三個廁所前與5號梯口）"}, {"n": 6, "name": "導護六", "area": "和平樓　全部樓層", "kind": "heping", "box": "和平樓各層二個巡視箱（11、12號梯口）"}, {"n": 7, "name": "導護七", "area": "早上站東北門崗　秩序維護", "kind": "gate", "box": "無巡視箱，負責上學時段門崗秩序維護"}], "roster": {"許進富": "校長", "張恒嘉": "教務主任", "陳喬楷": "學務主任", "林宜靜": "總務主任", "楊武憲": "輔導主任", "王應恒": "人事主任", "謝育豐": "會計主任", "劉澍賢": "教學組長", "陳凱翔": "註冊組長", "李佳娟": "設備組長", "蔡仲哲": "資訊組長", "何思萱": "訓育組長", "徐湘添": "生教組長", "郭佳豪": "體育組長", "林楚芸": "衛生組長", "詹捷翔": "出納組長", "陳美惠": "財管幹事", "陳佳琳": "輔導組長", "蔡瑩叡": "資料組長", "許意苹": "特教組長", "楊華倫": "專輔教師", "東郁玟": "專輔教師", "黃紫雯": "約聘社工師", "林維辰": "人事書記", "陳彥妁": "人事書記", "吳承翰": "會計佐理", "李雅惠": "護理師", "王安妮": "護理師", "楊阜慈": "事務員", "蔡幸曄": "約僱幹事", "羅秀香": "約僱幹事", "黃玉淳": "行政助理", "蔡佩樺": "行政助理", "蘇奕雯": "行政助理", "趙婷婷": "教師助理員", "張春美": "契僱廚工", "林麗琴": "契僱廚工", "江淑惠": "契僱廚工", "劉淑珍": "一年1班", "蔡青蓉": "一年2班", "鍾佳蓉": "一年3班", "林蓉敏": "一年4班", "鄧詩嘉": "一年5班", "鄧善惠": "一年6班", "吳美瑤": "一年7班", "周宜潔": "一年8班", "范嘉純": "一年9班", "楊嬿卿": "二年1班", "洪秀如": "二年2班", "朱娜君": "二年3班", "陳惠美": "二年4班", "沈靜敏": "二年5班", "王淑玉": "二年6班", "廖佩茹": "二年7班", "陳怡婷": "二年8班", "林可欣": "二年9班", "李國彥": "三年1班", "王大維": "三年2班", "黃麗美": "三年3班", "許祺文": "三年4班", "蔡玫真": "三年5班", "林怡秀": "三年6班", "郭蕙菊": "三年7班", "王美玲": "三年8班", "吳珮綺": "三年9班", "蕭濤穎": "四年1班", "江芊褕": "四年2班", "廖瑞珍": "四年3班", "林美秀": "四年4班", "徐玉珍": "四年5班", "石麗霞": "四年6班", "蕭秀慧": "四年7班", "蕭雅內": "四年8班", "李美惠": "四年9班", "林郁君": "四年10班", "陳媺絨": "四年11班", "金雅萍": "五年1班", "喻思婷": "五年2班", "莊永浰": "五年3班", "羅筠甯": "五年4班", "關春琪": "五年5班", "吳肯致": "五年6班", "謝宜芳": "五年7班", "呂志潔": "五年8班", "宋庭萱": "五年9班", "余忠善": "五年10班", "高若華": "五年11班", "林建龍": "五年12班", "陳郁雯": "六年1班", "楊家麟": "六年2班", "王妤": "六年3班", "詹淑環": "六年4班", "羅清蘭": "六年5班", "蔡鵑如": "六年6班", "王維萱": "六年7班", "謝涵書": "六年8班", "林煦凱": "六年9班", "張珺涵": "六年10班", "黃馨儀": "六年11班", "曾子焄": "六年12班", "陳靜儀": "六年13班", "簡麗秋": "六年14班", "廖淑美": "自然科學", "姜巧華": "自然科學", "羅明昌": "自然科學", "陳靜慧": "自然科學", "李豊義": "自然科學", "姚竣豪": "自然科學", "陳冠蓉": "自然科學", "林俊宏": "資訊科技", "江益華": "資訊科技", "陳俞潓": "資訊科技", "劉惠芬": "英語科任", "邱麗君": "英語科任", "呂亞琪": "英語科任", "薛玉蓮": "英語科任", "林倚莉": "英語科任", "張雅茹": "英語科任", "劉虹音": "英語科任", "林英傑": "英語科任", "黃彥舒": "英語科任", "陳志明": "雙語健康", "賴元": "雙語健康", "王景傳": "閩南語科任", "吳美文": "社會科任", "鍾竣任": "體育科任", "黃宏揚": "體育科任", "邱哲伊": "體育科任", "陳齊為": "體育科任", "洪伃佳": "體育科任", "鄭竣予": "體育科任", "沈世鴻": "體育科任", "謝睿中": "專任運動教練", "王秋嵐": "表演藝術", "施懿珊": "表演藝術", "高婕凌": "表演藝術", "胡仲薇": "表演藝術", "林昭君": "表演藝術", "張倩芸": "表演藝術", "謝惠菱": "視覺藝術", "黃瀅慈": "視覺藝術", "許仲恩": "視覺藝術", "吳彥成": "視覺藝術", "張榮明": "潛發班", "楊孟珠": "潛發班", "陳慧敏": "潛發班", "陳筠": "潛發班", "魏嘉妏": "潛發班", "劉姈芳": "潛發班", "林宥均": "潛發班", "陳俐安": "潛發班", "張庭竺": "潛發班", "吳品嫻": "潛發班", "武輔金": "潛發班", "鄒甯方": "潛發班", "周詩紘": "潛發班", "王琇娟": "元氣班", "高沛瑜": "元氣班", "張佑安": "元氣班", "江彥凝": "元氣班", "江珞瑀": "元氣班", "詹文蘭": "教師助理員", "曾意晴": "幼兒園主任", "歐奉君": "幼兒園", "王慧珠": "幼兒園", "陳盈如": "幼兒園", "張意慧": "幼兒園", "陳秀滿": "幼兒園", "陳家鈴": "幼兒園", "游鈺婷": "幼兒園", "陳羿妏": "幼兒園", "陳芯彤": "幼兒園", "佘映璇": "幼兒園", "詹雅涵": "幼兒園", "詹如婷": "幼兒園", "周聖蓉": "幼兒園", "許瓊文": "幼兒園", "張貞慧": "幼兒園", "高毓筑": "幼兒園護理師", "翁怡萍": "英語鐘點", "管彩汝": "客語", "陳龍煌": "客語", "楊寶霞": "客語", "范舜惠": "客語", "高焜燦": "閩南語", "康玉庭": "閩南語", "古文進": "族語", "石美齡": "族語", "楊子仙": "族語", "黃涵甄": "族語", "張婉貞": "新住民語", "黃適雲": "新住民語", "廖依如": "新住民語", "沈詩意": "新住民語", "許進雄": "保全", "陳彥亭": "保全", "謝秉諺": "保全", "揚明昇": "保全", "許秉宏": "事務員", "張旺": "事務員", "張賢勇": "事務員", "賴國亮": "家長會保全", "朱美春": "家長會清潔", "徐邱杏珠": "家長會清潔", "朱衣潔": "實習老師", "林家萱": "實習老師", "劉羽芹": "實習老師", "林敏": "實習老師", "黃瑩瑩": "代理教師"}, "exempt": ["鍾佳蓉", "邱麗君", "林昭君", "詹淑環", "王景傳", "王美玲", "李美惠", "王淑玉", "江芊褕", "姜巧華", "楊華倫", "東郁玟"], "excluded": {"許進富": "職務排除（說明6）—校長", "張恒嘉": "職務排除（說明6）—教務主任", "陳喬楷": "職務排除（說明6）—學務主任", "林宜靜": "職務排除（說明6）—總務主任", "楊武憲": "職務排除（說明6）—輔導主任", "王應恒": "職務排除（說明6）—人事主任", "謝育豐": "職務排除（說明6）—會計主任", "徐湘添": "職務排除（說明6）—生教組長", "詹捷翔": "職務排除（說明6）—出納組長", "陳美惠": "職務排除（說明6）—財管幹事", "楊華倫": "免輪值教師（說明3、4）", "東郁玟": "免輪值教師（說明3、4）", "黃紫雯": "職務排除（說明6）—約聘社工師", "林維辰": "職務排除（說明6）—人事書記", "陳彥妁": "職務排除（說明6）—人事書記", "吳承翰": "職務排除（說明6）—會計佐理", "李雅惠": "職務排除（說明6）—護理師", "王安妮": "職務排除（說明6）—護理師", "楊阜慈": "職務排除（說明6）—事務員", "蔡幸曄": "職務排除（說明6）—約僱幹事", "羅秀香": "職務排除（說明6）—約僱幹事", "黃玉淳": "職務排除（說明6）—行政助理", "蔡佩樺": "職務排除（說明6）—行政助理", "蘇奕雯": "職務排除（說明6）—行政助理", "趙婷婷": "職務排除（說明6）—教師助理員", "張春美": "職務排除（說明6）—契僱廚工", "林麗琴": "職務排除（說明6）—契僱廚工", "江淑惠": "職務排除（說明6）—契僱廚工", "鍾佳蓉": "免輪值教師（說明3、4）", "王淑玉": "免輪值教師（說明3、4）", "王美玲": "免輪值教師（說明3、4）", "江芊褕": "免輪值教師（說明3、4）", "李美惠": "免輪值教師（說明3、4）", "詹淑環": "免輪值教師（說明3、4）", "姜巧華": "免輪值教師（說明3、4）", "邱麗君": "免輪值教師（說明3、4）", "王景傳": "免輪值教師（說明3、4）", "謝睿中": "職務排除（說明6）—專任運動教練", "林昭君": "免輪值教師（說明3、4）", "詹文蘭": "職務排除（說明6）—教師助理員", "曾意晴": "職務排除（說明6）—幼兒園主任", "歐奉君": "職務排除（說明6）—幼兒園", "王慧珠": "職務排除（說明6）—幼兒園", "陳盈如": "職務排除（說明6）—幼兒園", "張意慧": "職務排除（說明6）—幼兒園", "陳秀滿": "職務排除（說明6）—幼兒園", "陳家鈴": "職務排除（說明6）—幼兒園", "游鈺婷": "職務排除（說明6）—幼兒園", "陳羿妏": "職務排除（說明6）—幼兒園", "陳芯彤": "職務排除（說明6）—幼兒園", "佘映璇": "職務排除（說明6）—幼兒園", "詹雅涵": "職務排除（說明6）—幼兒園", "詹如婷": "職務排除（說明6）—幼兒園", "周聖蓉": "職務排除（說明6）—幼兒園", "許瓊文": "職務排除（說明6）—幼兒園", "張貞慧": "職務排除（說明6）—幼兒園", "高毓筑": "職務排除（說明6）—幼兒園護理師", "翁怡萍": "職務排除（說明6）—英語鐘點", "管彩汝": "職務排除（說明6）—客語", "陳龍煌": "職務排除（說明6）—客語", "楊寶霞": "職務排除（說明6）—客語", "范舜惠": "職務排除（說明6）—客語", "高焜燦": "職務排除（說明6）—閩南語", "康玉庭": "職務排除（說明6）—閩南語", "古文進": "職務排除（說明6）—族語", "石美齡": "職務排除（說明6）—族語", "楊子仙": "職務排除（說明6）—族語", "黃涵甄": "職務排除（說明6）—族語", "張婉貞": "職務排除（說明6）—新住民語", "黃適雲": "職務排除（說明6）—新住民語", "廖依如": "職務排除（說明6）—新住民語", "沈詩意": "職務排除（說明6）—新住民語", "許進雄": "職務排除（說明6）—保全", "陳彥亭": "職務排除（說明6）—保全", "謝秉諺": "職務排除（說明6）—保全", "揚明昇": "職務排除（說明6）—保全", "許秉宏": "職務排除（說明6）—事務員", "張旺": "職務排除（說明6）—事務員", "張賢勇": "職務排除（說明6）—事務員", "賴國亮": "職務排除（說明6）—家長會保全", "朱美春": "職務排除（說明6）—家長會清潔", "徐邱杏珠": "職務排除（說明6）—家長會清潔", "朱衣潔": "職務排除（說明6）—實習老師", "林家萱": "職務排除（說明6）—實習老師", "劉羽芹": "職務排除（說明6）—實習老師", "林敏": "職務排除（說明6）—實習老師"}, "next21": ["王琇娟", "陳慧敏", "魏嘉妏", "劉姈芳", "宋庭萱", "林建龍", "簡麗秋", "謝宜芳", "陳郁雯", "楊家麟", "鄭竣予", "范嘉純", "林俊宏", "邱哲伊", "黃馨儀", "吳美瑤", "高婕凌", "林宥均", "廖瑞珍", "胡仲薇", "余忠善"], "holidays": {"2026-09-25": "中秋節", "2026-09-28": "教師節", "2026-10-09": "國慶日補假（10/10適逢週六）", "2026-10-26": "光復節補假（10/25適逢週日）", "2026-12-25": "行憲紀念日", "2027-01-01": "開國紀念日", "2027-03-01": "和平紀念日補假（2/28適逢週日）", "2027-04-05": "清明節・兒童節", "2027-04-06": "兒童節補假", "2027-04-30": "勞動節補假（5/1適逢週六）", "2027-06-09": "端午節"}, "breaks": [{"to": "2026-08-31", "name": "暑假（115學年度尚未開學）"}, {"from": "2027-01-20", "to": "2027-02-11", "name": "寒假"}, {"from": "2027-06-30", "name": "暑假（115學年度已結業）"}], "handover": "每週五第二節下課 10：10 進行導護交接（移交會議 10：10～10：30）。", "byline": "臺北市內湖區東湖國小　學務處　生教組　Sean Hsu 教師設計"};
+const POST = Object.fromEntries(D.posts.map(p => [p.n, p]));
+const $ = s => document.querySelector(s);
+const WD = ['日','一','二','三','四','五','六'];
+
+/* ---------- 索引 ---------- */
+const IDX = {};
+D.semesters.forEach((s, si) => s.weeks.forEach((w, wi) => w.names.forEach((n, i) => {
+  (IDX[n] = IDX[n] || []).push({ si, wi, post: i + 1 });
+})));
+const ALL = Object.keys(IDX);
+const CNNO = {}; D.semesters[0].weeks.forEach((w, i) => CNNO[w.cn] = i + 1);
+
+const iso = d => d.toISOString().slice(0, 10);
+const parseISO = s => new Date(s + 'T12:00:00');
+const fmt = s => { const d = parseISO(s);
+  return `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')}（${WD[d.getDay()]}）`; };
+const md = s => { const d = parseISO(s);
+  return `${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')}（${WD[d.getDay()]}）`; };
+
+/* 展開所有實際值勤日 */
+const DUTY = [];
+D.semesters.forEach((s, si) => s.weeks.forEach((w, wi) => {
+  for (let d = parseISO(w.ds); iso(d) <= w.de; d.setDate(d.getDate() + 1)) {
+    const k = iso(d);
+    if (d.getDay() === 0 || d.getDay() === 6 || D.holidays[k]) continue;
+    DUTY.push({ d: k, si, wi });
+  }
+}));
+const dutyOf = (si, wi) => DUTY.filter(x => x.si === si && x.wi === wi).map(x => x.d);
+
+function findWeek(k) {
+  for (let si = 0; si < D.semesters.length; si++) {
+    const ws = D.semesters[si].weeks;
+    for (let wi = 0; wi < ws.length; wi++) if (k >= ws[wi].bs && k <= ws[wi].be) return { si, wi };
+  }
+  return null;
+}
+function dayInfo(k) {
+  const wk = findWeek(k);
+  const isDuty = DUTY.some(x => x.d === k);
+  if (isDuty) return { kind: 'duty', wk };
+  if (D.holidays[k]) return { kind: 'holiday', wk, why: D.holidays[k] };
+  const dow = parseISO(k).getDay();
+  if (wk) return { kind: 'weekend', wk, why: dow === 6 ? '星期六' : '星期日' };
+  const br = D.breaks.find(b => (!b.from || k > b.from) && (!b.to || k < b.to));
+  return { kind: 'break', wk: null, why: br ? br.name : '不在 115 學年度範圍內' };
+}
+const prevDuty = k => [...DUTY].reverse().find(x => x.d < k);
+const nextDuty = k => DUTY.find(x => x.d > k);
+
+/* ---------- 主表 ---------- */
+$('#eyebrow').textContent = D.school;
+$('#yr').textContent = D.year;
+$('#handover').textContent = D.handover;
+$('#exempt').innerHTML = D.exempt.map(n => `<span class="tag">${n}</span>`).join('');
+$('#next21').innerHTML = D.next21.map(n => `<li>${n}</li>`).join('');
+$('#byline').textContent = D.byline;
+$('#credit').textContent = `全學年 42 週 · 值勤日 ${DUTY.length} 天 · 輪值教師 ${ALL.length} 位 · 導護一～七`;
+
+$('#main').innerHTML = D.semesters.map((s, si) => `
+  <section class="sem">
+    <div class="semhead"><h2>${s.label}</h2>
+      <span class="meta">${s.weeks.length} 週 · ${s.weeks[0].period.split('~')[0]} – ${s.weeks.at(-1).period.split('~')[1]}</span></div>
+    <div class="grid">${s.weeks.map((w, wi) => `
+      <article class="wk">
+        <div class="wk-h"><button data-w="${si}.${wi}">
+          <span class="wk-n">第${w.cn}週</span><span class="wk-d">${w.period}</span></button></div>
+        ${w.note ? `<div class="wk-note">${w.note}</div>` : ''}
+        <ul class="rows">${w.names.map((n, i) => `
+          <li class="${i === 6 ? 'g7' : ''}"><span class="pn">${i + 1}</span>
+          <button class="nm" data-n="${n}">${n}</button></li>`).join('')}</ul>
+      </article>`).join('')}</div>
+  </section>`).join('');
+
+/* ---------- 樓層立面圖 ---------- */
+function elevation(p) {
+  const on = '#2E4A52', off = '#C9D2CB', line = '#93A1A6', txt = '#6B7C84', br = '#A9761F';
+  let f = '';
+  for (let i = 1; i <= 5; i++) {
+    const y = 132 - i * 20, lit = p.kind === 'floor' && p.floor === i;
+    f += `<rect x="18" y="${y}" width="150" height="19" fill="${lit ? on : off}" stroke="#FBFCF9"/>
+          <text x="10" y="${y + 14}" font-size="10" fill="${txt}" font-family="IBM Plex Mono,monospace" text-anchor="end">${i}F</text>`;
+  }
+  const hp = p.kind === 'heping', gt = p.kind === 'gate';
+  return `<svg class="elev" viewBox="0 0 400 158" role="img" aria-label="${p.area}">${f}
+    <rect x="196" y="92" width="88" height="40" fill="${hp ? on : off}" stroke="#FBFCF9"/>
+    <rect x="312" y="98" width="9" height="34" fill="${gt ? br : off}"/>
+    <rect x="371" y="98" width="9" height="34" fill="${gt ? br : off}"/>
+    <rect x="312" y="88" width="68" height="10" fill="${gt ? br : off}"/>
+    <line x1="4" y1="132.5" x2="396" y2="132.5" stroke="${line}"/>
+    <text x="93" y="148" font-size="10.5" fill="${txt}" text-anchor="middle" font-family="Noto Sans TC,sans-serif">忠孝樓・仁愛樓・信義樓</text>
+    <text x="240" y="148" font-size="10.5" fill="${txt}" text-anchor="middle" font-family="Noto Sans TC,sans-serif">和平樓</text>
+    <text x="346" y="148" font-size="10.5" fill="${txt}" text-anchor="middle" font-family="Noto Sans TC,sans-serif">東北門崗</text></svg>`;
+}
+
+/* ---------- 視窗 ---------- */
+let lastFocus = null;
+function show(title, sub, body) {
+  $('#mtitle').textContent = title; $('#msub').textContent = sub; $('#mbody').innerHTML = body;
+  $('#ov').classList.add('on'); document.body.style.overflow = 'hidden';
+  $('#ov').scrollTop = 0; $('#mx').focus();
+}
+function close() {
+  $('#ov').classList.remove('on'); document.body.style.overflow = '';
+  if (lastFocus) lastFocus.focus();
+}
+
+function weekBody(si, wi) {
+  const s = D.semesters[si], w = s.weeks[wi];
+  const days = dutyOf(si, wi);
+  const off = [];
+  for (let d = parseISO(w.bs); iso(d) <= w.be; d.setDate(d.getDate() + 1)) {
+    const k = iso(d);
+    if (D.holidays[k]) off.push(`${md(k)} ${D.holidays[k]}`);
+  }
+  return `<p class="tally">值勤 ${days.length} 天${w.note ? ' · ' + w.note : ''}</p>
+    <div class="chips">
+      ${days.map(k => `<span class="chip on">${md(k)}</span>`).join('')}
+      ${off.map(t => `<span class="chip off">${t}</span>`).join('')}
+    </div>
+    <div class="pl-lbl">本週導護老師</div>
+    <ul class="postlist">${w.names.map((n, i) => {
+      const p = POST[i + 1];
+      return `<li class="${i === 6 ? 'g7' : ''}"><span class="badge-sm">${p.name}</span>
+        <div><button class="pl-name" data-n="${n}">${n}</button>
+        <div class="pl-area">${p.area}</div></div></li>`;
+    }).join('')}</ul>`;
+}
+
+function openWeek(si, wi) {
+  const s = D.semesters[si], w = s.weeks[wi];
+  show(`${s.label}　第${w.cn}週`, w.period.replace('~', ' ~ '), weekBody(si, wi));
+}
+
+function openDate(k) {
+  const info = dayInfo(k);
+  const pv = prevDuty(k), nx = nextDuty(k);
+  const jump = `<div class="jump">
+    ${pv ? `<button data-d="${pv.d}">← 往前：${md(pv.d)}</button>` : ''}
+    ${nx ? `<button data-d="${nx.d}">往後：${md(nx.d)} →</button>` : ''}</div>`;
+
+  if (info.kind === 'duty') {
+    const { si, wi } = info.wk, s = D.semesters[si], w = s.weeks[wi];
+    show(fmt(k), `${s.label}　第${w.cn}週　值勤日`, weekBody(si, wi));
+    return;
+  }
+  if (info.kind === 'break') {
+    show(fmt(k), '非上課期間',
+      `<div class="notice"><h4>這天不用站導護</h4>
+        <p>${fmt(k)} 屬於${info.why}，不在導護輪值週次內。</p>${jump}</div>`);
+    return;
+  }
+  const { si, wi } = info.wk, s = D.semesters[si], w = s.weeks[wi];
+  const label = info.kind === 'weekend' ? `${info.why}（例假日）` : `放假日 — ${info.why}`;
+  show(fmt(k), `${s.label}　第${w.cn}週　${info.kind === 'weekend' ? '例假日' : '放假日'}`,
+    `<div class="notice"><h4>這天不用站導護</h4>
+      <p>${fmt(k)} 是${label}。這一天屬於<strong>${s.label}第${w.cn}週</strong>，該週值勤日為 ${w.period}。</p>
+      ${jump}</div>` + weekBody(si, wi));
+}
+
+function openTeacher(name) {
+  const duties = IDX[name];
+  if (duties) {
+    const g7 = duties.filter(d => d.post === 7).length;
+    const body = `<p class="tally">本學年共 ${duties.length} 次輪值${g7 ? ` · 含導護七 ${g7} 次` : ''}</p>` +
+      duties.map(d => {
+        const s = D.semesters[d.si], w = s.weeks[d.wi], p = POST[d.post];
+        return `<div class="duty ${p.kind === 'gate' ? 'gate' : ''}">
+          <div class="d-top"><span class="d-when">${s.label}　第${w.cn}週</span>
+            <span class="d-date">${w.period}</span>
+            ${w.note ? `<span class="d-note">${w.note}</span>` : ''}</div>
+          <div class="d-post"><span class="badge">${p.name}</span>
+            <div><div class="d-area">${p.area}</div><div class="d-box">${p.box}</div></div></div>
+          ${elevation(p)}
+          <div class="mates"><div class="lbl">同週輪值夥伴</div>
+            <ul>${w.names.map((n, i) => i + 1 === d.post ? '' :
+              `<li><span class="pn">${i + 1}</span><button data-n="${n}">${n}</button></li>`).join('')}</ul>
+          </div></div>`;
+      }).join('');
+    show(name, D.roster[name] || '', body);
+  } else if (D.exempt.includes(name)) {
+    show(name, D.roster[name] || '', `<div class="empty"><p><strong>${name}</strong> 本學年免輪值導護。</p>
+      <p>依說明3、4：年滿六十歲、懷孕或因重症等健康因素不宜輪值者，及專任輔導教師兼任導師，免除導護輪值。</p></div>`);
+  } else if (D.excluded[name]) {
+    show(name, D.roster[name] || '', `<div class="empty"><p><strong>${name}</strong> 不列入導護輪值。</p>
+      <p>${D.excluded[name]}</p></div>`);
+  } else {
+    const near = ALL.filter(n => n.includes(name) || name.includes(n)).slice(0, 8);
+    show(name, '查無資料', `<div class="empty"><p>名冊中查無「${name}」。</p>
+      <p>${near.length ? '你要找的是不是：' + near.join('、') : '請確認姓名是否正確，或改用日期、週次查詢。'}</p></div>`);
+  }
+}
+
+$('#mx').onclick = close;
+$('#ov').onclick = e => { if (e.target === $('#ov')) close(); };
+document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-n],[data-w],[data-d]');
+  if (!b) return;
+  if (!e.target.closest('#sug')) lastFocus = b;
+  if (b.dataset.n) openTeacher(b.dataset.n);
+  else if (b.dataset.w) { const [si, wi] = b.dataset.w.split('.').map(Number); openWeek(si, wi); }
+  else if (b.dataset.d) openDate(b.dataset.d);
+});
+
+/* ---------- 解析 ---------- */
+function mk(y, m, d) {
+  if (m < 1 || m > 12 || d < 1 || d > 31) return null;
+  const dt = new Date(y, m - 1, d, 12);
+  return (dt.getMonth() === m - 1 && dt.getDate() === d) ? iso(dt) : null;
+}
+const inferY = (m, d) => mk(m >= 8 ? 2026 : 2027, m, d);
+
+function parseDate(v) {
+  v = v.trim().replace(/[年月]/g, '/').replace(/日$/, '');
+  let m;
+  if (m = v.match(/^(\d{4})[\/\-.](\d{1,2})[\/\-.](\d{1,2})$/)) return mk(+m[1], +m[2], +m[3]);
+  if (m = v.match(/^(\d{4})(\d{2})(\d{2})$/)) return mk(+m[1], +m[2], +m[3]);
+  if (m = v.match(/^(\d{1,2})[\/\-.](\d{1,2})$/)) return inferY(+m[1], +m[2]);
+  if (m = v.match(/^(\d{3,4})$/)) return inferY(+m[1].slice(0, -2), +m[1].slice(-2));
+  return null;
+}
+function parseWeek(v) {
+  v = v.trim().replace(/\s/g, '');
+  if (!/[上下第週wW]/.test(v)) return [];
+  let sem = null, m = v.match(/^(上|下)(學期)?/);
+  if (m) { sem = m[1] === '上' ? 0 : 1; v = v.slice(m[0].length); }
+  v = v.replace(/^第/, '').replace(/週次?$/, '').replace(/^[wW]/, '');
+  let no = /^\d+$/.test(v) ? +v : CNNO[v];
+  if (!no || no < 1 || no > 21) return [];
+  return sem === null ? [{ si: 0, wi: no - 1 }, { si: 1, wi: no - 1 }] : [{ si: sem, wi: no - 1 }];
+}
+
+/* ---------- 搜尋建議 ---------- */
+const q = $('#q'), sug = $('#sug');
+let sel = -1, list = [];
+function build(v) {
+  const out = [];
+  const dk = parseDate(v);
+  if (dk) {
+    const info = dayInfo(dk);
+    const meta = info.kind === 'duty'
+      ? `${D.semesters[info.wk.si].label}第${D.semesters[info.wk.si].weeks[info.wk.wi].cn}週`
+      : (info.kind === 'break' ? info.why : '放假日');
+    out.push({ kind: 'date', k: '日期', label: fmt(dk), meta, act: () => openDate(dk) });
+  }
+  parseWeek(v).forEach(({ si, wi }) => {
+    const s = D.semesters[si], w = s.weeks[wi];
+    out.push({ kind: 'week', k: '週次', label: `${s.label}　第${w.cn}週`, meta: w.period,
+               act: () => openWeek(si, wi) });
+  });
+  if (v) {
+    ALL.filter(n => n.includes(v)).slice(0, 8).forEach(n =>
+      out.push({ kind: 'teacher', k: '教師', label: n, meta: D.roster[n] || '', act: () => openTeacher(n) }));
+    Object.keys(D.excluded).filter(n => n.includes(v)).slice(0, 4).forEach(n =>
+      out.push({ kind: 'teacher', k: '教師', label: n, meta: D.roster[n] || '', act: () => openTeacher(n) }));
+  }
+  return out.slice(0, 12);
+}
+function render() {
+  const v = q.value.trim();
+  list = v ? build(v) : [];
+  sel = -1;
+  sug.innerHTML = list.map(o =>
+    `<button class="k-${o.kind}"><span class="kind">${o.k}</span>${o.label}<span class="meta">${o.meta}</span></button>`).join('');
+  sug.classList.toggle('on', list.length > 0);
+}
+q.addEventListener('input', render);
+q.addEventListener('focus', render);
+sug.addEventListener('mousedown', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  e.preventDefault();
+  sug.classList.remove('on'); lastFocus = q;
+  list[[...sug.children].indexOf(b)].act();
+});
+q.addEventListener('keydown', e => {
+  if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+    e.preventDefault(); if (!list.length) return;
+    sel = (sel + (e.key === 'ArrowDown' ? 1 : -1) + list.length) % list.length;
+    [...sug.children].forEach((c, i) => c.classList.toggle('sel', i === sel));
+  } else if (e.key === 'Enter') { e.preventDefault(); submit(); }
+  else if (e.key === 'Escape') sug.classList.remove('on');
+});
+function submit() {
+  if (!list.length) render();
+  sug.classList.remove('on'); lastFocus = q;
+  if (list.length) (sel >= 0 ? list[sel] : list[0]).act();
+  else if (q.value.trim()) openTeacher(q.value.trim());
+}
+$('#go').onclick = submit;
+document.addEventListener('click', e => { if (!e.target.closest('.searchbox')) sug.classList.remove('on'); });
+</script>
+</body>
+</html>
