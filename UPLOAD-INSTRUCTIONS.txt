@@ -1,0 +1,23 @@
+東湖國小導護輪值網站｜iPhone 主畫面圖示更新說明
+
+本資料夾已完成：
+1. apple-touch-icon.png（iPhone 主畫面用）
+2. icon-192.png、icon-512.png（PWA 用）
+3. favicon-32x32.png（瀏覽器分頁用）
+4. site.webmanifest（網頁 App 設定）
+5. index.html（已加入所有圖示與主畫面設定）
+
+上傳方式：
+將 ZIP 內的檔案全部上傳到 GitHub 專案 seanhsudfps/donghu-duty-115 的最外層，
+其中 index.html 請取代原本版本。make_icons.py、source-school-crest.png 與
+icon-master-1024.png 可保留作為未來修改素材，不影響網站運作。
+
+iPhone 更新方式：
+1. 等待 GitHub Pages 更新約 1～5 分鐘。
+2. 刪除主畫面上原本黑底「1」的舊圖示。
+3. 用 Safari 重新開啟：
+   https://seanhsudfps.github.io/donghu-duty-115/
+4. 點「分享」→「加入主畫面」。
+5. 預覽應顯示新校徽圖示，名稱為「東湖導護」。
+
+若仍看到舊圖示，可在 Safari 重新整理網站後再加入一次。
